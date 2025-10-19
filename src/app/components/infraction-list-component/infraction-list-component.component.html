@@ -14,7 +14,7 @@
       <mat-label>Filtrar por estado</mat-label>
       <mat-select [(ngModel)]="statusFilter" (selectionChange)="applyFilter()">
         <mat-option value="">Todos</mat-option>
-        <mat-option *ngFor="let status of ['PENDING','IN_PROGESS','PAID']" [value]="status">{{ status }}</mat-option>
+        <mat-option *ngFor="let status of ['PENDING','IN_PROCESS','PAID']" [value]="status">{{ status }}</mat-option>
       </mat-select>
     </mat-form-field>
 
