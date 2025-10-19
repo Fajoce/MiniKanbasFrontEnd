@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   FormBuilder,
   FormsModule,
@@ -46,7 +47,8 @@ export class RegisterComponentComponent {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthServiceService
+    private authService: AuthServiceService,
+    private router: Router
   ) {}
 
   onSubmit(): void {
@@ -65,7 +67,7 @@ export class RegisterComponentComponent {
     });
   }
 
-  goBack() {
-    this.backToLogin.emit();
-  }
+ goBack() {
+  this.router.navigate(['/login']);
+}
 }
