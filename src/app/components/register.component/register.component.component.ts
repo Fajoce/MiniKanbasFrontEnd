@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+
 import {
   FormBuilder,
   FormsModule,
@@ -15,6 +16,7 @@ import { MatCard } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { MatOption } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +29,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatIcon,
     MatOption,
-    MatSelectModule 
+    MatSelectModule,
+   
   ],
   templateUrl: './register.component.component.html',
   styleUrls: ['./register.component.component.scss'],
@@ -48,7 +51,8 @@ export class RegisterComponentComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthServiceService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   onSubmit(): void {
@@ -61,13 +65,27 @@ export class RegisterComponentComponent {
     };
 
     this.authService.register(user).subscribe({
-      next: () => this.registerSuccess.emit(),
-      error: (err) =>
-        (this.errorMessage = err.error?.message || 'Error al registrar'),
+  next: () => {
+    this.registerSuccess.emit();
+    this.snackBar.open('Usuario registrado con éxito!', 'Cerrar', {
+      duration: 3000, // duración en ms
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
     });
+  },
+  error: (err) => {
+    this.errorMessage = err.error?.message || 'Error al registrar';
+    this.snackBar.open(this.errorMessage, 'Cerrar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
+  },
+});
   }
 
  goBack() {
   this.router.navigate(['/login']);
 }
 }
+  
