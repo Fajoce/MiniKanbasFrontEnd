@@ -1,0 +1,79 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding: 16px;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #3f51b5;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  mat-form-field {
+    font-size: 1.2rem;
+
+    mat-label {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    input, mat-select {
+      font-size: 1.1rem;
+      padding: 12px 0;
+    }
+
+    mat-icon {
+      color: rgba(0,0,0,0.6);
+    }
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+
+  button {
+    flex: 1;
+    font-size: 1.1rem;
+    padding: 12px 0;
+  }
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.success-message {
+  color: #388e3c;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
