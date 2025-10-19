@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { User, AuthResponse } from '../models/user.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
-private readonly API_URL = 'https://minikanbanbackend-hwxa.onrender.com/api/auth';
+private readonly API_URL = environment.apiUrlAuth;
 
   constructor(private http: HttpClient) {}
 
