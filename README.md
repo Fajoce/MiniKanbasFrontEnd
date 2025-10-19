@@ -1,27 +1,27 @@
 # InfractionsKanban
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+<img width="419" height="320" alt="image" src="https://github.com/user-attachments/assets/06939e3b-b086-4c07-b508-7e9125fa607f" />
 
-## Development server
+ Puedes loguearte con el usuario admin contraseña admin123 o crear uno nuevo y luego loguearte
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<img width="432" height="547" alt="image" src="https://github.com/user-attachments/assets/5d71d2a0-ab65-479a-ae4b-b05aa03a70c3" />
 
-## Code scaffolding
+Una vez logueado con las credenciales correctas podras acceder al siguiente menu:
+<img width="1336" height="642" alt="image" src="https://github.com/user-attachments/assets/418b1788-0e08-45f0-846c-a315b91399e7" />
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Podras arrastar al siguiente proceso cada infraccion o tambien editar el status de PENDING a IN_PROCESS or PAID
 
-## Build
+Desde la opcion Infracciones podras ver un listado de infracciones como este:
+<img width="1360" height="563" alt="image" src="https://github.com/user-attachments/assets/7a23bfd6-e42b-4b21-a0af-c0c1108ba3fc" />
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Podras filtar por todos los campos o por Status
 
-## Running unit tests
+tambien esta la opcion de cerrar sesion para regresar al login
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
