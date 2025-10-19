@@ -7,7 +7,7 @@ import { User, AuthResponse } from '../models/user.model';
   providedIn: 'root'
 })
 export class AuthServiceService {
-private readonly API_URL = 'http://localhost:8080/api/auth';
+private readonly API_URL = 'https://minikanbanbackend-hwxa.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
