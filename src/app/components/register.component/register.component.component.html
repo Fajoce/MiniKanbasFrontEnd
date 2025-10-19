@@ -1,0 +1,58 @@
+<div class="register-container">
+  <mat-card class="register-card">
+    <h2 class="title">Registrar usuario</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <!-- Usuario -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Ingrese su usuario" formControlName="username" />
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          El usuario es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.get('username')?.hasError('minlength')">
+          Mínimo 3 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Contraseña -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Ingrese su contraseña" />
+        <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          La contraseña es obligatoria
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('minlength')">
+          Mínimo 4 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Rol -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="rol" placeholder="Seleccione un rol">
+          <mat-option value="user">Usuario</mat-option>
+          <mat-option value="admin">Administrador</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('rol')?.invalid">Seleccione un rol</mat-error>
+      </mat-form-field>
+
+      <!-- Error general -->
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+      <!-- Botones -->
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          Registrar
+        </button>
+        <button mat-stroked-button type="button" (click)="goBack()">
+          Volver al login
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

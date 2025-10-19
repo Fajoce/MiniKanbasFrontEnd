@@ -1,0 +1,85 @@
+<mat-card class="infraction-card">
+  <h2>Lista de Infracciones</h2>
+
+  <div class="filters">
+    <mat-form-field appearance="outline">
+      <mat-label>Buscar</mat-label>
+      <input matInput [(ngModel)]="filterValue" (ngModelChange)="applyFilter()" placeholder="Nombre, ID, Tipo, Oficial..." />
+      <button mat-icon-button matSuffix *ngIf="filterValue" (click)="filterValue=''; applyFilter()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Filtrar por estado</mat-label>
+      <mat-select [(ngModel)]="statusFilter" (selectionChange)="applyFilter()">
+        <mat-option value="">Todos</mat-option>
+        <mat-option *ngFor="let status of ['PENDING','IN_PROGESS','PAID']" [value]="status">{{ status }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button (click)="clearFilters()">Limpiar filtros</button>
+  </div>
+
+  <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+
+  <div class="table-container" *ngIf="!loading">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="driverName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Conductor</th>
+        <td mat-cell *matCellDef="let element">{{ element.driverName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="driverId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Conductor</th>
+        <td mat-cell *matCellDef="let element">{{ element.driverId }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+        <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Monto</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount | currency }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="issuedAt">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Emitido</th>
+        <td mat-cell *matCellDef="let element">{{ element.issuedAt | date:'short' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Vencimiento</th>
+        <td mat-cell *matCellDef="let element">{{ element.dueDate | date:'short' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="officerName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Oficial</th>
+        <td mat-cell *matCellDef="let element">{{ element.officerName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="notes">
+        <th mat-header-cell *matHeaderCellDef>Notas</th>
+        <td mat-cell *matCellDef="let element">{{ element.notes }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+  </div>
+</mat-card>
