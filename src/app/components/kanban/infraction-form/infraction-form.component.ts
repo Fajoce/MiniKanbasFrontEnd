@@ -52,7 +52,7 @@ import { Infraction } from '../../../models/infraction';
       </mat-form-field>
 
        <mat-form-field class="full">
-        <mat-label>Estado</mat-label>
+        <mat-label>Tipo</mat-label>
         <mat-select formControlName="type">
           <mat-option value="TYPE_A">Tipo A</mat-option>
           <mat-option value="TYPE_B">Tipo B</mat-option>
