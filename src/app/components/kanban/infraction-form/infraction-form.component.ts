@@ -51,9 +51,16 @@ import { Infraction } from '../../../models/infraction';
         <input matInput formControlName="driverId" />
       </mat-form-field>
 
-      <mat-form-field class="full">
-        <mat-label>Tipo</mat-label>
-        <input matInput formControlName="type" />
+       <mat-form-field class="full">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="type">
+          <mat-option value="TYPE_A">Tipo A</mat-option>
+          <mat-option value="TYPE_B">Tipo B</mat-option>
+          <mat-option value="TYPE_C">Tipo C</mat-option>
+          <mat-option value="TYPE_D">Tipo D</mat-option>
+          <mat-option value="TYPE_E">Tipo E</mat-option>
+        
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field class="full">
